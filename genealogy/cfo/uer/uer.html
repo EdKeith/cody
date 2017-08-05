@@ -1,0 +1,320 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<title>Query</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin+Slab">
+<style type="text/css" media="screen">
+body {text-align:center;background-color:#fefefe;padding:0;margin:0;border:0;}
+#query-div {border:6px solid #aac;background-color:#f0f0f1;font-family:'Josefin Slab',Arial,sans-serif;font-weight:bold;}
+#query-form-table {width:100%;padding:1px;}
+#query-form-table td {padding:1px}
+.boxed-highlight {border:1px solid #aaa;padding:2px;height:2em;text-align:center;}
+.query-form-label {font-size:18px;margin-left:5px;}
+input[type="text"] {padding:1px;}
+.action-button {font-variant:small-caps;margin:auto;color:#008;font-size:110%;font-family:'Josefin Slab',Arial,sans-serif;}
+#query-message {font-weight:bold;}
+.query-standard-select {width:100px;}
+
+#results-table {display:none;border:2px solid #fbb;width:100%;}
+#results-headers th {background-color:#eeb;font-weight:normal;font-size:14px;font-variant:small-caps;cursor:pointer;}
+#results-headers th:hover{color:blue;background-color:#ffc;}
+.result-row { border:1px;}
+#debug {display:none;border:6px solid green;}
+
+</style>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+    function debug(msg) {
+	    $("#debug").empty();
+	    $("#debug").html(msg);
+	    $("#debug").show();
+	}
+    
+    var allData = null;
+    function getAll() {
+	     $.ajax( {url:'check/check.php',type:"POST",data:{action:'getall'}})
+		 .done(function(data){allData = $.parseJSON(data);})
+	}
+</script>
+
+<script type="text/javascript">
+    function loadNode(info) {
+	    var codyId = info['cody-id'];
+		var gen = info['generation'];
+	    var firstName="", middleName="", lastName="", birthYear="", deathYear="";
+		if('first-name' in info) { firstName=info['first-name'];} 
+		if('last-name' in info) { lastName=info['last-name']; }
+		if('birth-year' in info) { birthYear=info['birth-year']; }
+		if('death-year' in info) { deathYear=info['death-year']; }		
+
+		
+	    var $nodeClone = $("#tree-node-template").clone();
+		var $idDiv = $nodeClone.find("#tree-node-id");
+		$idDiv.html(info['cody-id']);
+
+		var name = firstName+' '+lastname;
+		var $nameDiv = $nodeClone.find("#tree-node-name");
+		var $dateDiv = $nodeClone.find("#tree-node-date");		
+	
+	}
+</script>
+<script type="text/javascript">
+   // var bgcolors = {"5":"#F8E088","6":"#F8E498","7":"#F8E8A8","8":"#F8EBB8","9":"#F8EEC8","10":"#F8F0D8","11":"#F8F0E8","12":"#F8F0F8","13":"#F8F0FF"};
+    var bgcolors = {"5":"#ffccaa", "6":"#ffa500", "7":"#ffd700",
+					"8":"#f8e68C", "9":"#ffff88", "10":"d0ffaa", 
+					"11":"#aaee66", "12":"#99ffff", "13":"#ccccff"};
+    function loadChapterSelect() {
+	     $("#chapter-select").append('<option value="" selected>All</option');  
+	     $.ajax( {url:'../pfd/swi.php',type:"POST",data:{action:'getchapterlist'}})
+		 .done(function(data){var opts = $.parseJSON(data);$.each(opts, function(i,opt) {$("#chapter-select").append('<option value="'+opt+'">'+opt+'</option>');});})
+	} 
+	function loadRegionSelect() {
+	    $("#birth-region-select").append('<option value="0" selected>All</option');  
+	    $("#death-region-select").append('<option value="0" selected>All</option');		 
+	    $.ajax( {url:'../pfd/swi.php',type:"POST",data:{action:'getregionlist'}})
+			.done(function(data){var opts = $.parseJSON(data);$.each(opts, function(i,opt) {
+			$("#birth-region-select").append('<option value="'+opt+'">'+opt+'</option>');
+			$("#death-region-select").append('<option value="'+opt+'">'+opt+'</option>');			
+			});
+			
+		})
+	}
+
+    function loadResultsTable(data) {
+	    var displayFields = ['cody-id','generation','first-name','middle-name','last-name','birth-month','birth-day','birth-year','birth-town',
+		'birth-region','number-of-marriages','death-month','death-day','death-year','death-town','death-region','burial-town','burial-region'] 
+		$("#results-headers").empty();
+		$("#results-tbody").empty();
+		$("#results-table").show();
+		$.each(displayFields, function(i,field){
+		    var header = field.replace("-"," ");
+			var $th = $("<th id='"+field+"-header'>"+header+"</th>");
+			$th.click(function(){ 
+				   $("#orderby").val(field);
+				   $("#query-form").submit();
+			}); 
+		    $("#results-headers").append($th);
+		});
+		var records = $.parseJSON(data);
+		$("#query-message").html(records.length + " records");
+		$.each(records, function(i,record) {
+		    var gen = record['generation'];
+			$tr = $("<tr class='results-row-'"+gen +"></tr>");
+			$tr.css('background-color',bgcolors[gen]);
+			
+			$.each(displayFields, function(i,field) {
+			    if(field in record) {
+				    $td = $("<td>"+record[field]+"</td>");
+					if(field == "cody-id") { $td.css('padding-left',gen*2-8); }
+					$tr.append($td);
+				}
+				else { $tr.append("<td></td>"); }
+			});			
+			$("#results-tbody").append($tr);
+		});
+	}
+	
+
+</script>					
+</head>
+<body>
+
+
+<div id="container">
+	<div id="query-div">
+	    
+	    <form id="query-form" name="query-form">
+		    <input type="hidden" id="orderby" name="orderby" value="first-name" />
+            <table id="query-form-table" border="0">
+			    <tr class="query-form-tr">
+					<td class="boxed-highlight">
+						<label class="query-form-label">Cody Family Chapter</label>
+						<select id="chapter-select" name="chapter-select" class="query-standard-select"></select>
+						<label class="query-form-label">Generation</label>
+						<select name="generation-select" id="generation-select" class="query-standard-select"><option value=""></option>
+						<option value="5">5</option><option value="6">6</option><option value="7">7</option>
+						<option value="8">8</option><option value="9">9</option><option value="10">10</option>
+						<option value="11">11</option><option value="12">12</option><option value="13">13</option>
+						</select>
+					</td>
+					<td>
+						<label class="query-form-label">Birth month</label>
+						<select name="birth-month-select" id="birth-month-select"><option value=""></option>
+						<option value="1">January</option><option value="2">February</option><option value="3">March</option>
+						<option value="4">April</option><option value="5">May</option><option value="6">June</option>
+						<option value="7">July</option><option value="8">August</option><option value="9">September</option>
+						<option value="10">October</option><option value="11">November</option><option value="12">December</option>			
+						</select>
+					</td>
+					<td>
+						<label class="query-form-label">Birth day</label>
+						<input type="text" id="birth-day" name="birth-day" size="2" maxlength="2" value="" />
+					</td>
+					<td>
+						<label class="query-form-label">Birth year</label>
+						<input type="text" id="birth-year" name="birth-year" size="4" maxlength="4" value="" />
+					</td>					
+					<td>
+						<label class="query-form-label">Birth region</label>
+						<select id="birth-region-select" name="birth-region-select" class="query-standard-select"></select>
+					</td>	
+					<td>
+						<input type="submit" class="action-button" id="query-submit" name="query-submit" value="Submit Query" />
+					</td>
+				</tr>
+			    <tr class="query-form-tr">
+					<td>
+						<label class="query-form-label">Last Name</label>
+						<input type="text" id="last-name" name="last-name" size="6"  value="" />
+						<label class="query-form-label">First Name</label>
+						<input type="text" id="first-name" name="first-name" size="6"  value="" />						
+						<label class="query-form-label">Middle</label>
+						<input type="text" id="middle-name" name="middle-name" size="6"  value="" />		
+					</td>
+					<td>
+						<label class="query-form-label">Death month</label>
+						<select name="death-month-select" id="death-month-select"><option value=""></option>
+						<option value="1">January</option><option value="2">February</option><option value="3">March</option>
+						<option value="4">April</option><option value="5">May</option><option value="6">June</option>
+						<option value="7">July</option><option value="8">August</option><option value="9">September</option>
+						<option value="10">October</option><option value="11">November</option><option value="12">December</option>			
+						</select>
+					</td>
+					<td>
+						<label class="query-form-label">Death day</label>
+						<input type="text" id="death-day" name="death-day" size="2" maxlength="2" value="" />
+					</td>
+					<td>
+						<label class="query-form-label">Death year</label>
+						<input type="text" id="death-year" name="death-year" size="4" maxlength="4" value="" />
+					</td>					
+					<td>
+						<label class="query-form-label">Death region</label>
+						<select id="death-region-select" name="death-region-select"  class="query-standard-select"></select>
+					</td>	
+					<td>
+						<input type="reset" class="action-button" id="query-clear" name="query-clear" value="Clear Fields" />
+					</td>
+				</tr>
+			    <tr class="query-form-tr">
+					<td>
+						<label class="query-form-label">Number of marriages</label>
+						<input type="text" id="number-of-marriages" name="number-of-marriages" size="4" maxlength="1" value="" />	
+					
+					</td>
+					<td colspan="3" class="boxed-highlight">
+						<label class="query-form-label">Born after year</label>
+						<input type="text" id="born-after-year" name="born-after-year" size="4" maxlength="4" value="" />
+						<label class="query-form-label">Born before year</label>
+						<input type="text" id="born-before-year" name="born-before-year" size="4" maxlength="4" value="" />
+					</td>
+					
+
+					<td></td>					
+					<td>
+						<span id="query-message"></span>
+					</td>
+				</tr>				
+			</table>
+
+		</form>
+	</div>
+	<div id="results-div">
+		<table id="results-table">
+			<thead id="results-thead">
+				<tr id="results-headers">
+				</tr>
+			</thead>
+			<tbody id="results-tbody">
+			</tbody>		
+		</table>
+	</div>
+	<div id="tree-div">
+	</div>
+	<div id="debug"></div>
+</div>
+<script type="text/javascript">
+   var surnameList = null;
+
+    $(document).ready(function() {
+		loadChapterSelect();
+		loadRegionSelect();
+	
+	});
+</script>
+<script type="text/javascript">
+/*
+	$( "#last-name" ).autocomplete({
+		source: function (request, response) {
+			$.ajax({
+				url:"check/getsurnames.php",
+				type:"POST",
+				data:{	term: request.termCode	}})
+				.done(function(data){
+					response($.parseJSON(data));
+				})
+				.fail(function (jqXHR, textStatus, errorThrown) {
+					var msg = "Query failed to complete successfully:  " + textStatus + " " +errorThrown;
+					$('#query-message').html(msg);
+				})
+				.always(function() { 
+					$("#query-submit").prop('disabled',false)
+				});
+
+		},
+		minLength: 2
+	});
+	*/
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+		$("#query-form").submit(function(event) {
+		    $("#query-message").html("Searching...");
+			event.preventDefault();
+			var chapterid = $("#chapter-select :selected").attr('value');
+			var lastname = $("#last-name").val();			
+		    var firstname = $("#first-name").val();
+		    var middlename = $("#middle-name").val();
+		    //var lastname = $("#last-name").val();
+			var generation = $("#generation-select :selected").attr('value');
+			var birthmonth = $("#birth-month-select :selected").attr('value');		
+		    var birthday = $("#birth-day").val();
+		    var birthyear = $("#birth-year").val();
+		    var birthregion = $("#birth-region-select :selected").attr('value');
+			var deathmonth = $("#death-month-select :selected").attr('value');		
+		    var deathday = $("#death-day").val();
+		    var deathyear = $("#death-year").val();
+		    var deathregion = $("#death-region-select :selected").attr('value');
+            var bornbeforeyear = $("#born-before-year").val();
+            var bornafteryear = $("#born-after-year").val();
+			var numberofmarriages = $("#number-of-marriages").val();
+			var orderby = $("#orderby").val();
+			$("#query-submit").prop('disabled',true);
+ 			$.ajax( {url:'../pfd/swi.php',
+					type: "POST",
+					data: {action:'querydata', chapterid:chapterid,lastname:lastname,firstname:firstname,
+												middlename:middlename,generation:generation,
+												birthyear:birthyear,birthmonth:birthmonth,
+												birthday:birthday,birthregion:birthregion,deathyear:deathyear,deathmonth:deathmonth,
+												deathday:deathday,deathregion:deathregion,
+												bornbeforeyear:bornbeforeyear,bornafteryear:bornafteryear,
+												numberofmarriages:numberofmarriages,orderby:orderby}
+				})
+				.done(function(data){
+					loadResultsTable(data);
+				})
+				.fail(function (jqXHR, textStatus, errorThrown) {
+					var msg = "Query failed to complete successfully:  " + textStatus + " " +errorThrown;
+					$('#query-message').html(msg);
+				})
+				.always(function() { 
+					$("#query-submit").prop('disabled',false)
+				})
+			});
+	});
+</script>
+
+</body>
+</html>

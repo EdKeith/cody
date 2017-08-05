@@ -533,7 +533,7 @@ class CodyFamily {
 			$personInfo['generation'] = strlen($chapterMemberId) + 5;
 		}
 		else {
-		   echo "No Chapter for $line<br /><br />";
+		   $this->logMsg("No Chapter for $line");
 		}
 		// Strip off the marriage info, alway towards the end of the record
 		$m1 = strpos(strtolower($line),$this->m1Marker);

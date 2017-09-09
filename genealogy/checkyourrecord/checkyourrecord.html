@@ -370,7 +370,7 @@ Can't find your record? Join us and find yourself!
 </tr>
 <tr><td colspan="3"><hr noshade align=center height=2 width=80%></div></td></tr>
 <tr>
-<td width=300><div class="footertextl">COPYRIGHT © JUNE, 2017 BY</div>
+<td width=300><div class="footertextl">COPYRIGHT ï¿½ JUNE, 2017 BY</div>
 </td>
 <td width=300 align=center><img src="../../footerlogo.gif" alt="The International Cody Family Association" width="245" 
   height="40"><br>
@@ -625,7 +625,7 @@ Can't find your record? Join us and find yourself!
 		}
 		
 		// Saved original data sent to populate this form
-		var originalData = $("#edit-window"+uniqueid).data(); 
+		var originalData = JSON.parse(JSON.stringify($("#edit-window"+uniqueid).data())); 
 		
 		// get form data
 		var id = $("#edit-form"+uniqueid).prop('id');
@@ -679,7 +679,7 @@ Can't find your record? Join us and find yourself!
 		//**************************************************************//
 		if(numberOfChanges > 0) {
 			// Saved original data sent to populate this form
-			var originalData = $("#edit-window"+uniqueid).data(); 
+			var originalData = JSON.parse(JSON.stringify($("#edit-window"+uniqueid).data())); 
 		
 		    var confirmTitle = "Suggested Corrections for Cody ID "+ $("#codyidspan"+uniqueid).html();
 		    $("#confirm-title").html(confirmTitle); 
@@ -736,7 +736,7 @@ Can't find your record? Join us and find yourself!
 	
 	$("#submitconfirm").click(function(event) { 
 	    var uniqueid =  $("#unique-id").html();
-		var originalData = $("#original-data").data();
+		var originalData = JSON.parse(JSON.stringify($("#original-data").data()));
 		var submittedData = $("#submitted-data").data();		
 		var newRecordLine = "";
 	    var confirmFirstName = $("#confirm-first-name").html();
@@ -746,6 +746,7 @@ Can't find your record? Join us and find yourself!
 	    var confirmComment = $("#confirm-comment").html();		
 	    var mailText = $("#confirm-title").html() + "\n\r";
 		mailText += $("#submitter-info").text() + "\n\r";
+		  // $('#family-').data('sender', {'lastname':confirmFirstName, })
 		
 		
 		$("#confirm-table tr.confirm-data-row").each(function() {
@@ -763,7 +764,7 @@ Can't find your record? Join us and find yourself!
 
 		var newRecordLine = constructNewRecordLine(originalData, submittedData);
 		mailText += "Updated Text Record:\n\r"+ newRecordLine + "\n\r";		
-		//console.log(mailText);
+		console.log(mailText);
 		// SUBMIT CONFIRM
 		submitConfirm(uniqueid, confirmFirstName, confirmLastName, confirmCodyId, confirmEmail, mailText);
 	});	

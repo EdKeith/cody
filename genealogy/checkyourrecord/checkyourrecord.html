@@ -689,6 +689,7 @@ Can't find your record? Join us and find yourself!
 			$("#confirm-email").html(submitterEmail);
 			if(submitterComment.length > 0) {
 				$("#confirm-comment").html(submitterComment);
+				$("#comment"+uniqueid).val('')
 				$("#confirm-comment-container").show();
 			}
 			$("#unique-id").html(uniqueid);
@@ -743,11 +744,18 @@ Can't find your record? Join us and find yourself!
 	    var confirmLastName = $("#confirm-last-name").html();		
 	    var confirmCodyId = $("#confirm-cody-id").html();		
 	    var confirmEmail = $("#confirm-email").html();	
-	    var confirmComment = $("#confirm-comment").html();		
+	    var confirmComment = $("#confirm-comment").html();
+		  $("#confirm-comment").html('');
 	    var mailText = $("#confirm-title").html() + "\n\r";
-		mailText += $("#submitter-info").text() + "\n\r";
-		  // $('#family-').data('sender', {'lastname':confirmFirstName, })
+		  mailText += $("#submitter-info").text() + "\n\r";
 		
+		  var senderdata = {'lastname':confirmFirstName, 
+												'firstname':confirmFirstName, 
+												'codyid':confirmCodyId, 
+												'email':confirmEmail};
+		  console.log('sender data: ', senderdata);
+		  $("#family-info").data('sender', senderdata);
+		 
 		
 		$("#confirm-table tr.confirm-data-row").each(function() {
 			var $tr =  $(this);  
@@ -1043,6 +1051,22 @@ Can't find your record? Join us and find yourself!
 			$editClone.data(data);    // Store the JSON in the edit window, to compare with form submission
 			
 		    $("#person"+uniqueid).after($editClone);
+			  var sender = $("#family-info").data('sender');
+				if (sender){
+					// $("#family-info").data('sender', senderdata);
+					/*
+						  var senderdata = {'lastname:confirmFirstName, 
+												'firstname':confirmFirstName, 
+												'codyid':confirmCodyId, 
+												'email':confirmEmail};
+					*/
+		 
+	    		  $("#submitter-first-name"+uniqueid).val(sender['firstname']);
+	    		  $("#submitter-last-name"+uniqueid).val(sender['lastname']);
+	    		  $("#submitter-cody-id"+uniqueid).val(sender['codyid']);
+	    		  $("#submitter-email"+uniqueid).val(sender['email']);
+					
+				}
 			$editClone.width($("#person"+uniqueid).width());
 			var mleft = $("#person"+uniqueid).css('margin-left');
 			$editClone.css('margin-left',mleft);

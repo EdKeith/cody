@@ -9,106 +9,8 @@
 <link rel="stylesheet" href="../../css222.css" />
 <script type="text/javascript" src="../../dynamictext22.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-<style type="text/css" media="screen">
-body {text-align:center;}
-#layout {width:70%;margin-left:15%;}
-.header {font-size:150%;font-weight:bold;text-align:center;padding:5px;}
-.instrux {font-size:14px;text-align:center;padding:10px;}
-#chapterid {width:3em;padding:1px 3px;text-align:center;}
-#codyidform {text-align:left;margin:10px;font-size:14px;border:2px solid #f4e4b0;border-radius:10px;overflow:auto;padding:5px;background-color:#f8f8f0;}
-#nameform {margin:10px;font-size:14px;border:2px solid #f4e4b0;border-radius:10px;overflow:auto;padding:5px;background-color:#f8f8f0;}
-#nameform-table {display:block;padding:10px;}
-.nameform-div {float:left;margin:2px 5px 2px 20px;padding:1px;display:block;}
-div { font-family:'Open Sans'; }
-div.formrow {padding:5px;}
-a {color: #1A30B7;text-decoration: none;}
+<link rel="stylesheet" href="css/checkyourrecord.css" >
 
-input,select {font-size:14px;font-family:'Open Sans';}
-label.required {color:#c00;font-weight:bold;width:150px;}
-input.button {color:#444;font-weight:bold;font-size:16px;margin:0 5px;padding:2px 10px;
-			border:1px solid #b29269;background-color:#f4e4b0;cursor:pointer;}
-input.button:hover {color:#a00;opacity:0.99;border:1px solid #000;}
-input.textbox {background-color: #fefeff; border:1px inset #aaa;padding:1px 2px;margin-bottom:5px;}
-input.chapterid {width:40px;}
-input.name {width: 120px;}
-input.suffix {width: 40px;}
-input.town {width: 120px;}
-input.region {width: 120px;}
-input.cemetery {width: 240px}
-input.day {width: 40px;}
-input.year {width: 60px;}
-input.required {background-color: #fefac5;}
-input.nobackground {background-color: #ffffff;       border-style: inset;       border-width: 0px;}
-
-
-#family-info { word-wrap:break-word;padding:10px;font-size:110%;clear:both;}
-#lineage {display:none; word-wrap:break-word;padding:0px;font-size:120%;}
-
-div.person {border:2px solid #ccc;margin:3px 0px 0px 0px;padding:2px;font-size:14px;font-weight:bold;}
-div.person label {margin-left:10px;margin-right:5px;font-weight:normal;}
-div.person-row {margin-bottom:2px;padding:1px;}
-div.data-row {border:1px solid #bbb;padding:2px;margin-bottom:0px;padding:1px;font-weight:normal;font-family:arial-narrow;}
-div.marriage-row {margin:2px 2px 2px 4px;}
-span.notknown {font-size:12px;}
-.user-message {font-style:italic; color:#044;padding-left:10px;min-width:100px;}
-.info-message {color:#333;font-family:garamond;text-align:center;padding:15px;font-size:18px;
-				font-weight:bold;width:80%;border:1px #888 solid;background-color:#f8f8f8;margin-bottom:10px;}
-
-.codyidspan {margin-right:20px;font-weight:bold;font-size:120%;padding:2px;}
-
-/* edit-window starts as a template, display none*/
-.edit-window {display:none;border:1px solid #888;padding:4px;font-size:14px;color:#330;width:100%;max-width:100%;font-weight:normal;}
-.edit-window label {margin-right:2px;}
-.edit-window-header {border:1px solid #f4a460;margin:5px;padding:5px;font-size:14px;}
-.edit-window-header-row {line-height:1.5em;width:auto;}
-.row-header {font-weight:bold;font-size:16px;font-variant:small-caps;font-family:arial-narrow;font-weight:normal;margin-right:2px;}
-.row-sub-header	 {margin-left:5px;}
-
-.edit-form {border:0;margin:0px;padding:0px;font-family:verdana;}
-.edit-table {width:100%;max-width:100%;}
-
-tr.edit-row {margin:5px 0 2px 0;}
-tr.edit-sub-row {margin:3px 0 2px 0;}
-td.edit-field {min-height:24px;padding:0 2px;}
-td.edit-field label {font-family:verdana;font-size:12px;}
-
-table.edit-marriage-table {display:none;width:100%;  border: 1px solid #b29269;padding:2px;}
-td.marriage-title-cell {font-weight:bold;}
-tr.edit-marriage-row {border:1px solid #b29269;margin:2px;}
-.comment-textarea {width:98%;margin-left:1%;font-family:arial;height:6em;padding:2px;}
-
-pre {font-size:10px;font-family:arial;word-wrap:break-word;padding:3px;max-width:600px;}
-
-#submit-confirm-overlay {
-	display:none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	background-color: rgba(0,0,0,0.1);
-	z-index: 10000;
-	}
-#confirm-container {
-	width:40%;
-	border:4px solid #b29269;
-	background-color:#fff;
-	margin-left:30%;
-	margin-top:20px;
-	padding:10px;
-	text-align:center;
-	max-height: 80vh;;
-    overflow: scroll;
-}
-table.confirm {width:100%;margin:10px 0px;border:2px solid #b29269;}
-table.confirm th {background-color:#eee;font-weight:normal;}
-table.confirm td {padding:2px;font-family:verdana;margin-left:10px;font-size:12px;}
-#confirm-buttons {margin-top:10px;padding:2px;text-align:center;height:30px;}
-#confirm-comment-container { display:none;}
-.confirm-title {text-align:left;font-family:garamond;font-weight:bold;font-size:16px;}
-#confirm-comment {word-wrap:break-word;margin:0px;font-family:verdana;font-size:12px;
-				padding:5px;font-weight:normal;border:2px solid #b29269;text-align:left;}
-</style>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type='text/javascript'>
 	function isEmail(email) {
@@ -118,27 +20,8 @@ table.confirm td {padding:2px;font-family:verdana;margin-left:10px;font-size:12p
 	var bgcolors = {"5":"#F8E088","6":"#F8E498","7":"#F8E8A8","8":"#F8EBB8","9":"#F8EEC8","10":"#F8F0D8","11":"#F8F0E8","12":"#F8F0F8","13":"#F8F0FF"};
 </script>
 
-<style type="text/css"><!--
-a:link      {text-decoration: none;
-                 color: black;}
-a:visited {text-decoration: none;
-                 color: black;}
-a:hover  {text-decoration: none;
-                color: gray;}
-
-.title {font-family: 'Arial';
-        font-size: 24pt;
-        color: #1A30B7;
-        text-align: center;}
-.legend {font-family: 'Times New Roman';
-        font-size: 32pt;
-        color: #000000;
-        text-align: left;
-        margin-left: 15px;}
-a {text-decoration: none;
-    color: black;}
- --></style>
-
+<link rel="stylesheet" href="css/checkyourrecord.css" >
+	
 </head>
 
 <body bgcolor="#ffffff">
@@ -1485,7 +1368,868 @@ $(document).ready(function() {
 				{ return true; }
 			else { return false; }
 		});
+<script type="text/javascript">
+    /* Tally up the changed fields   */
+    function compileChanges(uniqueid) {
+		// Check for required fields
+	    var submitterFirstName = $("#submitter-first-name"+uniqueid).val().trim();
+	    var submitterLastName = $("#submitter-last-name"+uniqueid).val().trim();
+	    var submitterCodyId = $("#submitter-cody-id"+uniqueid).val().trim();
+	    var submitterEmail = $("#submitter-email"+uniqueid).val().trim();
+		var submitterComment = $("#comment"+uniqueid).val().trim();
 
+		if(submitterFirstName.length == 0 || submitterLastName.length == 0 || isEmail(submitterEmail) == false) {
+		    $("#must-include-message"+uniqueid).css('color','red');
+		    //alert("Please include first name, last name and a proper email address");
+			return false;
+		}
+
+		// Saved original data sent to populate this form
+		var originalData = JSON.parse(JSON.stringify($("#edit-window"+uniqueid).data()));
+
+		// get form data
+		var id = $("#edit-form"+uniqueid).prop('id');
+		var $form = $("#edit-form"+uniqueid);
+
+	    var serializedFormData = $form.serialize();   // Serialize the form inputs
+		var submittedInputs = serializedFormData.split('&');
+		var submittedData = {};
+		var numberOfInputs = 0;
+
+		console.log("submittedInputs = ", submittedInputs);
+		$.each(submittedInputs, function(index,value) {
+			  console.log("value = ", value);
+		    var nameandvalue = value.split('=');
+			var inputName = nameandvalue[0].replace(uniqueid,""); // remove id decoration
+			var inputValue = nameandvalue[1];
+			
+			/* divorced */
+			if(inputName.indexOf("submitter") == -1 && inputName.indexOf("comment") == -1) {
+				submittedData[inputName] = inputValue.replace(/\+/g," ");
+				numberOfInputs++;
+			}
+		});
+		console.log("submittedData = ", submittedData)
+		//**************************************************************//
+		// CHECK FOR CHANGED FIELDS
+		//**************************************************************//
+        var changedFields = {};
+		var numberOfChanges = 0;
+		$.each(submittedData, function(submitIndex,submitValue) {
+			//console.log(submitIndex+ " "+ submitValue);
+			var submitLabel = submitIndex.replace(/\-/g," ");
+			submitLabel = submitLabel.charAt(0).toUpperCase() + submitLabel.slice(1);
+			var submitValueString = String(submitValue);
+			var submitValueCleaned = submitValueString.replace(/\+/g,' ');
+
+			if(submitIndex in originalData) {
+				var originalValue = originalData[submitIndex];
+				if(submitValueCleaned != originalValue) {
+					changedFields[submitIndex] = submitValueCleaned;
+					var $changeRow = $("<tr class='confirm-data-row'><td class='label-cell'>" + submitLabel +"</td><td class='original-data-cell'>"+originalValue+"</td><td class='submitted-data-cell'>"+submitValueCleaned+"</td></tr>");
+					$("#confirm-table").append($changeRow);
+					numberOfChanges++;
+				}
+			}
+            else {
+			    if(submitValueCleaned.length > 0) {
+					var $changeRow = $("<tr class='confirm-data-row'><td class='label-cell'>" + submitLabel +"</td><td class='original-data-cell'></td><td class='submitted-data-cell'>"+submitValueCleaned+"</td></tr>");
+					$("#confirm-table").append($changeRow);
+					numberOfChanges++;
+				}
+			}
+		});
+		//**************************************************************//
+		// If there are valid changes, show CONFIRM OVERLAY
+		//**************************************************************//
+		if(numberOfChanges > 0) {
+			// Saved original data sent to populate this form
+			var originalData = JSON.parse(JSON.stringify($("#edit-window"+uniqueid).data()));
+
+		    var confirmTitle = "Suggested Corrections for Cody ID "+ $("#codyidspan"+uniqueid).html();
+		    $("#confirm-title").html(confirmTitle);
+			$("#confirm-first-name").html(submitterFirstName);
+			$("#confirm-last-name").html(submitterLastName);
+			$("#confirm-cody-id").html(submitterCodyId);
+			$("#confirm-email").html(submitterEmail);
+			if(submitterComment.length > 0) {
+				$("#confirm-comment").html(submitterComment);
+				$("#comment"+uniqueid).val('')
+				$("#confirm-comment-container").show();
+			}
+			$("#unique-id").html(uniqueid);
+			$("#original-data").data(originalData);
+			$("#submitted-data").data(submittedData);
+			$("#submit-confirm-overlay").show();
+		}
+		else {  alert("No changes were made");}
+	}
+</script>
+
+<!-- This is the Submit Confirm modal dialog-->
+<div id="submit-confirm-overlay">
+    <div id="confirm-container">
+		<div id="confirm-title" class="confirm-title"></div>
+		<div id="submitter-info" class="confirm-title">
+			From <span id="confirm-first-name"></span> <span id="confirm-last-name"></span> <span id="confirm-cody-id"></span>
+			(<span id="confirm-email"></span>)
+		</div>
+		<table id="confirm-table" class="confirm">
+			<tr id="confirm-header-row"><th>Item</th><th>Old value</th><th>Suggestion</th></tr>
+		</table>
+		<div id="confirm-comment-container">
+			<div class="confirm-title">Comment</div>
+			<div id="confirm-comment"></div>
+		</div>
+
+		<div id="unique-id" style="display:none"></div>
+		<div id="original-data" style="display:none"></div>
+		<div id="submitted-data" style="display:none"></div>
+		<div id="confirm-buttons">
+			<input type="button" id="submitconfirm" name="submitconfirm" class="button" value="Submit Changes" />
+			<input type="button" id="cancelconfirm" name="cancelconfirm" class="button" value="Cancel Changes" />
+		</div>
+
+	</div>
+</div>
+<!-- END OF the Submit Confirm modal dialog-->
+
+<script type="text/javascript">
+	//**************************************************************//
+	// Click events for SUBMIT CONFIRM OVERLAY
+	//**************************************************************//
+	$("#cancelconfirm").click(function(event) { $("#submit-confirm-overlay").hide();$("#confirm-table tr.confirm-data-row").remove();})
+
+	$("#submitconfirm").click(function(event) {
+	    var uniqueid =  $("#unique-id").html();
+		var originalData = JSON.parse(JSON.stringify($("#original-data").data()));
+		var submittedData = $("#submitted-data").data();
+		console.log("submittedData = ", submittedData);
+		var newRecordLine = "";
+	    var confirmFirstName = $("#confirm-first-name").html();
+	    var confirmLastName = $("#confirm-last-name").html();
+	    var confirmCodyId = $("#confirm-cody-id").html();
+	    var confirmEmail = $("#confirm-email").html();
+	    var confirmComment = $("#confirm-comment").html();
+		  $("#confirm-comment").html('');
+	    var mailText = $("#confirm-title").html() + "\n\r";
+		  mailText += $("#submitter-info").text() + "\n\r";
+
+		  var senderdata = {'lastname':confirmFirstName,
+												'firstname':confirmFirstName,
+												'codyid':confirmCodyId,
+												'email':confirmEmail};
+		  console.log('sender data: ', senderdata);
+		  $("#family-info").data('sender', senderdata);
+
+
+		$("#confirm-table tr.confirm-data-row").each(function() {
+			var $tr =  $(this);
+            var label = $(this).find("td.label-cell").html();
+            var originalDataCell = $(this).find("td.original-data-cell").html();
+            var submittedDataCell = $(this).find("td.submitted-data-cell").html();
+			var line = label + ":  Change " + originalDataCell + " to " + submittedDataCell + "\n";
+			mailText += line;
+		});
+		mailText += "\n\rComment:  " + confirmComment;
+		mailText += "\n\rOriginal Text Record:\n\r"+ originalData['line'] + "\n\r";
+		$("#submit-confirm-overlay").hide();
+		$("#confirm-table tr.confirm-data-row").remove();
+
+		var newRecordLine = constructNewRecordLine(originalData, submittedData);
+		mailText += "Updated Text Record:\n\r"+ newRecordLine + "\n\r";
+		console.log(mailText);
+		// SUBMIT CONFIRM
+		submitConfirm(uniqueid, confirmFirstName, confirmLastName, confirmCodyId, confirmEmail, mailText);
+	});
+	//**************************************************************//
+	// SEND MAIL
+	//**************************************************************//
+	function submitConfirm(uniqueid, firstname,lastname,codyid,email,suggestions, newRecordLine) {
+		$.ajax( {url:'../cfo/pfd/swi.php',
+				type: "POST",
+				data: {action:'submitsuggestion',
+					firstname: firstname,
+					lastname: lastname,
+					codyid: codyid,
+					email: email,
+					suggestions: suggestions,
+					newrecordline: newRecordLine
+				}
+			})
+			.done(function(data){
+			    $("#edit-window"+uniqueid).remove();
+                alert("Thank you for your suggestions, they will be review and, if valid, included in our next Genealogy.");
+                var submitmessage = "Suggested corrections submitted by " + firstname  + " " + lastname + " - Thank you!";
+				$("#searchbyname-message").html(submitmessage);
+				location.reload();
+			})
+			.fail(function (jqXHR, textStatus, errorThrown) {
+
+			})
+	}
+</script>
+<script type="text/javascript">
+	//**************************************************************//
+	//     Contruct the record in the text file format
+	//**************************************************************//
+	function constructNewRecordLine(oldData, changedData) {
+		var newData = oldData;
+		var newRecordLine = newData['cody-id'];
+		var numberOfMarriages = 0;
+		// Merge
+	    $.each( changedData, function( key, value ) {
+		    //console.log(key + " " + value);
+		    if(value.length > 0) {
+				newData[key] = value;
+			}
+
+			if(key.includes("marriage-1")) { numberOfMarriages = 1;}
+			if(key.includes("marriage-2")) { numberOfMarriages = 2;}
+			if(key.includes("marriage-3")) { numberOfMarriages = 3;}
+			if(key.includes("marriage-4")) { numberOfMarriages = 4;}
+			if(key.includes("marriage-5")) { numberOfMarriages = 5;}
+			if(key.includes("marriage-6")) { numberOfMarriages = 6;}
+			if(key.includes("marriage-7")) { numberOfMarriages = 7;}
+		});
+		newData['number-of-marriages']	= numberOfMarriages;
+		//console.log(newData);
+		if('first-name' in newData) {newRecordLine += " " + newData['first-name'];}
+		if('middle-name' in newData) {newRecordLine += " " + newData['middle-name'];}
+		if('last-name' in newData) {newRecordLine += " " + newData['last-name'];}
+		if('suffix' in newData) {newRecordLine += " " + newData['suffix'];}
+        if('birth-day' in newData || 'birth-month' in newData || 'birth-year' in newData || 'birth-town' in newData || 'birth-region' in newData ) {
+			newRecordLine += " b ";
+			if('birth-town' in newData) {newRecordLine += " " + newData['birth-town'];}
+			if('birth-region' in newData) {newRecordLine += " " + newData['birth-region'];}
+			if('birth-month' in newData &&'birth-day' in newData && 'birth-year' in newData)	{
+				newRecordLine +=  " " + newData['birth-month']+"/"+newData['birth-day']+"/"+newData['birth-year'];
+			}
+			else {
+				if('birth-year' in newData) {newRecordLine += " " +  newData['birth-year'];}
+			}
+		}
+        if('death-day' in newData || 'death-month' in newData || 'death-year' in newData || 'death-town' in newData || 'death-region' in newData ) {
+			newRecordLine += " d ";
+			if('death-town' in newData) {newRecordLine += " " + newData['death-town'];}
+			if('death-region' in newData) {newRecordLine += " " + newData['death-region'];}
+			if('death-month' in newData &&'death-day' in newData && 'death-year' in newData)	{
+				newRecordLine += " " +  newData['death-month']+"/"+newData['death-day']+"/"+newData['death-year'];
+			}
+		}
+        if('burial-town' in newData || 'burial-region' in newData) {
+			newRecordLine += " bur ";
+			if('burial-town' in newData) {newRecordLine += " " + newData['burial-town'];}
+			if('burial-region' in newData) {newRecordLine += " " + newData['burial-region'];}
+		}
+		//**************************************************************//
+		// May be new marriages added
+		//**************************************************************//
+		console.log("newData = ", newData);
+		if(newData['number-of-marriages'] > 0) {
+
+			for(var m=1; m <= newData['number-of-marriages']; m++) {
+				newRecordLine += " m" + m + " ";
+
+				if('marriage-'+m+'-wedding-town' in newData) {
+					newRecordLine += " " +
+					     newData['marriage-'+m+'-wedding-town'] +
+						 " ";
+				}
+				if('marriage-'+m+'-wedding-region' in newData) {
+					newRecordLine += " " +
+					     newData['marriage-'+m+'-wedding-region'] +
+						 ' ';
+				}
+
+				if('marriage-'+m+'-wedding-month' in newData &&
+				   'marriage-'+m+'-wedding-day' in newData &&
+				   'marriage-'+m+'-wedding-year' in newData)	{
+					newRecordLine += newData['marriage-'+m+'-wedding-month']+
+					"/"+
+					newData['marriage-'+m+'-wedding-day']
+					+"/"+
+					newData['marriage-'+m+'-wedding-year'];
+				}
+				else {
+					if('marriage-'+m+'-wedding-year' in newData) {
+						newRecordLine += " " +
+						     newData['marriage-'+m+'-wedding-year'];
+						 }
+				}
+
+				if('marriage-'+m+'-first-name' in newData) {
+					newRecordLine += " " +
+					     newData['marriage-'+m+'-first-name'];
+				}
+				if('marriage-'+m+'-middle-name' in newData) {
+					newRecordLine += " " +
+					     newData['marriage-'+m+'-middle-name'];
+				}
+				if('marriage-'+m+'-last-name' in newData) {
+					newRecordLine += " " +
+					     newData['marriage-'+m+'-last-name'];
+				}
+				if('marriage-'+m+'-suffix' in newData) {
+					newRecordLine += " " +
+					     newData['marriage-'+m+'-suffix'];
+				}
+/*
+				if('marriage-'+m+'-divorced' in newData) {
+					newRecordLine += " div ";
+				}
+*/
+				if('marriage-'+m+'-birth-day' in newData ||
+				   'marriage-'+m+'-birth-month' in newData ||
+				   'marriage-'+m+'-birth-year' in newData ||
+				   'marriage-'+m+'-birth-town' in newData ||
+				   'marriage-'+m+'-birth-region' in newData ) {
+
+					newRecordLine += " b ";
+					if('marriage-'+m+'-birth-town' in newData) {
+						newRecordLine += " " +
+						     newData['marriage-'+m+'-birth-town'];
+					}
+					if('marriage-'+m+'-birth-region' in newData) {
+						newRecordLine += " " +
+						newData['marriage-'+m+'-birth-region'];
+					}
+
+					if('marriage-'+m+'-birth-month' in newData &&
+					   'marriage-'+m+'-birth-day' in newData &&
+					   'marriage-'+m+'-birth-year' in newData)	{
+
+						newRecordLine += " " +
+						     newData['marriage-'+m+'-birth-month']+
+							 "/"+
+							 newData['marriage-'+m+'-birth-day']+
+							 "/"+
+							 newData['marriage-'+m+'-birth-year'];
+					}
+					else {
+						if('marriage-'+m+'-birth-year' in newData) {
+							newRecordLine += " " +
+							newData['marriage-'+m+'-birth-year'];
+						}
+					}
+				}
+				if('marriage-'+m+'-death-day' in newData ||
+				   'marriage-'+m+'-death-month' in newData ||
+				   'marriage-'+m+'-death-year' in newData ||
+				   'marriage-'+m+'-death-town' in newData ||
+				   'marriage-'+m+'-death-region' in newData ) {
+
+					newRecordLine += " d ";
+					if('marriage-'+m+'-death-town' in newData) {
+						newRecordLine += " " +
+						     newData['marriage-'+m+'-death-town'];
+					}
+					if('marriage-'+m+'-death-region' in newData) {
+						newRecordLine += " " +
+						    newData['marriage-'+m+'-death-region'];
+					}
+
+					if('marriage-'+m+'-death-month' in newData &&
+					   'marriage-'+m+'-death-day' in newData &&
+					   'marriage-'+m+'-death-year' in newData)	{
+
+					 	newRecordLine += " " +
+						      newData['marriage-'+m+'-death-month']+
+							  "/"+
+							  newData['marriage-'+m+'-death-day']+
+							  "/"+
+							  newData['marriage-'+m+'-death-year'];
+					}
+					else {
+						if('marriage-'+m+'-death-year' in newData) {
+							newRecordLine += " " +
+							     newData['marriage-'+m+'-death-year'];
+						}
+					}
+				}
+
+				if('marriage-'+m+'-burial-town' in newData ||
+				   'marriage-'+m+'-burial-region' in newData) {
+
+					newRecordLine += " bur ";
+					if('marriage-'+m+'-burial-town' in newData) {
+						newRecordLine += " " +
+						     newData['marriage-'+m+'-burial-town'];
+					}
+					if('marriage-'+m+'-burial-region' in newData) {
+						newRecordLine += " " +
+						     newData['marriage-'+m+'-burial-region'];
+					}
+
+				}
+				
+        console.log("newData = ", newData);
+				
+				if('marriage-'+m+'-divorced' in newData) {
+					console.log("recording a divorce");
+					newRecordLine += " div ";
+				}
+
+			}
+		}
+
+	    return newRecordLine.replace(/\s\s+/g, ' ');
+	}
+</script>
+
+<script type="text/javascript">
+	function loadLineage(data) {
+		$.each($.parseJSON(data), function (codyid, personData) {
+		    loadPerson(personData,0);
+		});
+	}
+</script>
+<script type="text/javascript">
+	//**************************************************************//
+    // Dynamically construct the display of the person found
+	//**************************************************************//
+	function loadPerson(data, lineageOption) {
+
+	    var prettyJSON = JSON.stringify(data,null,4);
+		var codyid = data['cody-id'];
+	    var uniqueid = "-"+data['chapter']+"-"+data['chapter-member-id'];
+		var fullName = data['full-name'];
+		var $personDiv = $('<div id="person'+uniqueid+'" class="person"></div>"');
+		$("#family-info").append($personDiv);
+
+		var bg = bgcolors[data['generation']];
+		var marginLeft = (15 * data['generation']) - 75;
+		$personDiv.css("margin-left",marginLeft).css("background-color",bg);
+		var $detailDiv1 = $('<div class="person-row"></div>');
+		$detailDiv1.append('<label  class="row-header">Cody ID</label><span id="codyid">'+data['cody-id']+':  '+data['full-name']+'</span>');
+		$detailDiv1.append('<label>Generation</label>'+data['generation']);
+		$detailDiv1.append('<input id="suggest'+uniqueid+'" type="button" class="button" style="margin-left: 50px;" value="Suggest a Correction" />');
+        if(lineageOption == 1) {
+			$detailDiv1.append('<input id="viewlineage'+uniqueid+'" type="button" class="button" style="margin-left: 25px;" value="View Lineage" />');
+        }
+		$personDiv.append($detailDiv1);
+		var $bornDiv = $('<div class="person-row"></div>');
+        if('birth-year' in data) {$bornDiv.append('<label class="row-header">Born</label>'+data['birth-month-name']+' '+data['birth-day']+', '+data['birth-year']);}
+		if('birth-town' in data && 'birth-region' in data) {
+			$bornDiv.append('<label>in</label>'+data['birth-town']+', '+data['birth-region']);
+		}
+		else if('birth-region' in data) {
+			$bornDiv.append('<label>in</label>'+data['birth-region']);
+		}
+
+		else if('birth-place' in data) {
+			if(data['birth-place'].length > 0){ $bornDiv.append('<label>Birth Place</label>'+data['birth-place']);}
+		}
+		$personDiv.append($bornDiv);
+		if('death-info' in data || 'burial-info' in data) {
+
+			var $deathRow = $('<div class="person-row"><label class="row-header">Died</label></div>');
+			if('death-month-name' in data) {$deathRow.append(data['death-month-name']);}
+			if('death-day' in data) {$deathRow.append(' '+data['death-day']);}
+			if('death-year' in data) {$deathRow.append(' '+data['death-year']);}
+			if('death-town' in data || 'death-region' in data) {
+			    var dp = "<label> in </label>";
+				if('death-town' in data) {dp += data['death-town']+" ";}
+				if('death-region' in data) {dp += data['death-region'];}
+				$deathRow.append(dp);
+			}
+		    if('burial-info' in data) {$deathRow.append('<label>Buried</label>'+data['burial-info']);}
+		}
+
+		$personDiv.append($deathRow);
+		//**************************************************************//
+	    // MARRIAGES
+		//**************************************************************//
+		if(data['number-of-marriages'] > 0) {
+		    var $marDiv = $('<div class="person-row"></div');
+		    if(data['number-of-marriages'] > 1) {
+		        $marDiv.append('<label class="row-header">Marriages (' +data['number-of-marriages']+')</label>');
+			}
+			else {
+		        $marDiv.append('<label>Marriage</label>');
+			}
+
+			for(var m=1;m<(data['number-of-marriages']+1);m++) {
+
+			    var prefix = 'marriage-'+m+'-';
+
+				var firstname="", middlename="",lastname="";
+
+				if(prefix+'first-name' in data) {firstname = data[prefix+'first-name'];}
+				if(prefix+'middle-name' in data) {middlename = data[prefix+'middle-name'];}
+				if(prefix+'last-name' in data) {lastname = data[prefix+'last-name'];}
+				var fullname = $.trim(firstname+' '+middlename+' '+lastname);
+			    var $mar = $('<div class="marriage-row"></div>');
+				$mar.append('<label class="row-header">'+m+'.</label>');
+				if(prefix+'wedding-date' in data)  {
+					$mar.append('<label class="row-header">Wedding</label> '+data[prefix+'wedding-month']+'-'+data[prefix+'wedding-day']+'-'+data[prefix+'wedding-year']);
+				}
+				if(prefix+'wedding-place' in data)  {
+					$mar.append('<label class="row-header">in</label> '+data[prefix+'wedding-place']);
+				}
+
+				if(prefix+'spouse' in data) {$mar.append('<label>To</label> '+fullname); }
+				if(prefix+'birth-date' in data) {$mar.append('<label>Born</label>'+data[prefix+'birth-month']+'-'+data[prefix+'birth-day']+'-'+data[prefix+'birth-year']); }
+				if(prefix+'birth-town' in data && data[prefix+'birth-place'] != "") {$mar.append('<label>in</label>'  +data[prefix+'birth-place']); }
+				if(prefix+'death-info' in data) {
+					$mar.append('<label>Died</label>');
+					if(prefix+'death-month' in data) {$mar.append(data[prefix+'death-month']);}
+					if(prefix+'death-day' in data) {$mar.append("-"+data[prefix+'death-day']+"-");}
+					if(prefix+'death-year' in data) {$mar.append(data[prefix+'death-year']);}
+
+					if(prefix+'death-town' in data) { $mar.append(' '+data[prefix+'death-town']);}
+					if(prefix+'death-region' in data) { $mar.append(' '+data[prefix+'death-region']);}
+				}
+				if(prefix+'burial-town' in data && prefix+'burial-region' in data) {
+				    $mar.append('<label>Buried</label> '  +data[prefix+'burial-town']+', '+data[prefix+'burial-region']);
+				}
+				else if(prefix+'burial-info' in data) {$mar.append('<label>Buried</label> '  +data[prefix+'burial-info']); }
+				if(prefix+'divorced' in data) {$mar.append('<label> (Divorced)</label>'); }
+				$marDiv.append($mar);
+			}
+	        $personDiv.append($marDiv);
+        }
+		var $lineDiv = $('<div class="data-row"><label class="row-header">Record: </label>'+data['line']+'</div>');
+		$personDiv.append($lineDiv);
+
+
+
+		//****************************************************
+		// This causes suggest button to construct edit window
+		//   uniqueid identifies each separate node of the lineage
+		//****************************************************
+        var suggestid = '#suggest'+uniqueid;
+		$(suggestid).click(function(event) {
+		    if( $("#edit-window"+uniqueid).length) {$("#edit-window"+uniqueid).show(); return; }
+		    var $editClone = $("#edit-window").clone();
+			$editClone.attr("id","edit-window"+uniqueid);
+			$editClone.find('[id]').each(function(){this.id+=uniqueid});
+			$editClone.find('[name]').each(function(){this.name+=uniqueid});
+			$editClone.data(data);    // Store the JSON in the edit window, to compare with form submission
+
+		    $("#person"+uniqueid).after($editClone);
+			  var sender = $("#family-info").data('sender');
+				if (sender){
+					// $("#family-info").data('sender', senderdata);
+					/*
+						  var senderdata = {'lastname:confirmFirstName,
+												'firstname':confirmFirstName,
+												'codyid':confirmCodyId,
+												'email':confirmEmail};
+					*/
+
+	    		  $("#submitter-first-name"+uniqueid).val(sender['firstname']);
+	    		  $("#submitter-last-name"+uniqueid).val(sender['lastname']);
+	    		  $("#submitter-cody-id"+uniqueid).val(sender['codyid']);
+	    		  $("#submitter-email"+uniqueid).val(sender['email']);
+
+				}
+			$editClone.width($("#person"+uniqueid).width());
+			var mleft = $("#person"+uniqueid).css('margin-left');
+			$editClone.css('margin-left',mleft);
+			var bgColor = $("#person"+uniqueid).css('background-color');
+			$editClone.css('background-color',bgColor);
+			var firstname="", middlename="",lastname="";
+			if('first-name' in data) {firstname = data['first-name'];}
+			if('middle-name' in data) {middlename = data['middle-name'];}
+			if('last-name' in data) {lastname = data['last-name'];}
+			var fullname = $.trim(firstname+' '+middlename+' '+lastname);
+			$("#codyidspan"+uniqueid).text(codyid+':  '+fullname);
+			$("#first-name"+uniqueid).val(data['first-name']);
+			if('middle-name' in data) {$("#middle-name"+uniqueid).val(data['middle-name']);}
+			$("#last-name"+uniqueid).val(data['last-name']);
+			$("#suffix"+uniqueid).val(data['suffix']);
+			$("#birth-month"+uniqueid).val(data['birth-month']);
+			$("#birth-day"+uniqueid).val(data['birth-day']);
+			$("#birth-year"+uniqueid).val(data['birth-year']);
+			$("#birth-town"+uniqueid).val(data['birth-town']).show();
+			$("#birth-region"+uniqueid).val(data['birth-region']).show();
+
+			if('death-info' in data) {
+				$("#death-month"+uniqueid).val(data['death-month']);
+				$("#death-day"+uniqueid).val(data['death-day']);
+				$("#death-year"+uniqueid).val(data['death-year']);
+				$("#death-town"+uniqueid).val(data['death-town']);
+				$("#death-region"+uniqueid).val(data['death-region']);
+			}
+			if('burial-town' in data && 'burial-region' in data) {
+				$("#burial-town"+uniqueid).val(data['burial-town']);
+				$("#burial-region"+uniqueid).val(data['burial-region']);
+			}
+			else if('burial-info' in data) {
+				$("#burial-town"+uniqueid).val(data['burial-info']);
+			}
+			// There may be 0 to 6 marriages
+            if(data['number-of-marriages'] > 0) {
+
+				$("#editmarriages"+uniqueid).show();
+
+			    for(var m=1;m<(data['number-of-marriages']+1);m++) {
+
+					//* Data fields for each marriage are prefixed by "marriage-1-", "marriage-2-", etc.
+					var prefix = 'marriage-'+m+'-';
+
+					//* Copy the template
+					var $editMarDiv = $("#edit-marriage-table").clone();
+					$editMarDiv.attr("id",prefix+"edit-marriage-table"+uniqueid);
+
+					//* CustOmize the id and name for each input in the marriage editing block
+					//* This in case of multiple edit windows open.
+					//*  Too bad multiple edit windows are a bad idea.
+					$editMarDiv.find('[id]').each(function(){this.id = prefix+this.id+uniqueid});
+					$editMarDiv.find('[name]').each(function(){this.name = prefix+this.name+uniqueid});
+					$editMarDiv.addClass("edit-marriage-table-active");
+					$("#editmarriagescell"+uniqueid).append($editMarDiv);
+					$editMarDiv.show();
+
+					var firstname="", middlename="",lastname="";
+					if(prefix+'first-name' in data) {firstname = data[prefix+'first-name'];}
+					if(prefix+'middle-name' in data) {middlename = data[prefix+'middle-name'];}
+					if(prefix+'last-name' in data) {lastname = data[prefix+'last-name'];}
+                    var fullname = $.trim(firstname+' '+middlename+' '+lastname);
+					if(data['number-of-marriages'] == 1) {
+					    $("#"+prefix+"editmarriage-title-cell"+uniqueid).html("Marriage to "+fullname);
+					}
+					else {
+					    var title = "Marriage "+m+" to "+fullname;
+						$("#"+prefix+"editmarriage-title-cell"+uniqueid).html(title);
+					}
+					$("#"+prefix+"wedding-month"+uniqueid).val(data[prefix+'wedding-month']);
+					$("#"+prefix+"wedding-day"+uniqueid).val(data[prefix+'wedding-day']);
+					$("#"+prefix+"wedding-year"+uniqueid).val(data[prefix+'wedding-year']);
+					$("#"+prefix+"wedding-town"+uniqueid).val(data[prefix+'wedding-town']);
+					$("#"+prefix+"wedding-region"+uniqueid).val(data[prefix+'wedding-region']);
+                    if(prefix+'divorced' in data) {
+					     $("#"+prefix+"divorced"+uniqueid).prop( 'checked' , true );
+						 $("#"+prefix+"divorced"+uniqueid).val('div');
+					}
+					$("#"+prefix+"divorced"+uniqueid).change(function() {
+					    if($(this).is(":checked")) {$(this).val('divorced');}
+						else {$(this).val('');}
+					});
+
+					if(prefix+'first-name' in data) {$("#"+prefix+"first-name"+uniqueid).val(data[prefix+'first-name']);	}
+					if(prefix+'middle-name' in data) {$("#"+prefix+"middle-name"+uniqueid).val(data[prefix+'middle-name']);	}
+					if(prefix+'last-name' in data) {$("#"+prefix+"last-name"+uniqueid).val(data[prefix+'last-name']); }
+					if(prefix+'suffix' in data) {$("#"+prefix+"suffix"+uniqueid).val(data[prefix+'suffix']); }
+					if(prefix+'birth-month' in data) {$("#"+prefix+"birth-month"+uniqueid).val(data[prefix+'birth-month']);	}
+					if(prefix+'birth-day' in data) {$("#"+prefix+"birth-day"+uniqueid).val(data[prefix+'birth-day']);}
+					if(prefix+'birth-year' in data) {$("#"+prefix+"birth-year"+uniqueid).val(data[prefix+'birth-year']);}
+					if(prefix+'birth-town' in data) {$("#"+prefix+"birth-town"+uniqueid).val(data[prefix+'birth-town']);}
+					if(prefix+'birth-region' in data) {$("#"+prefix+"birth-region"+uniqueid).val(data[prefix+'birth-region']);}
+					if(prefix+'death-info' in data) {
+
+						$("#"+prefix+"death-month"+uniqueid).val(data[prefix+'death-month']);
+						$("#"+prefix+"death-day"+uniqueid).val(data[prefix+'death-day']);
+						$("#"+prefix+"death-year"+uniqueid).val(data[prefix+'death-year']);
+						$("#"+prefix+"death-town"+uniqueid).val(data[prefix+'death-town']);
+						$("#"+prefix+"death-region"+uniqueid).val(data[prefix+'death-region']);
+					}
+
+					if(prefix+'burial-town' in data  && prefix+'burial-region' in data) {
+						$("#"+prefix+"burial-town"+uniqueid).val(data[prefix+'burial-town']);
+						$("#"+prefix+"burial-region"+uniqueid).val(data[prefix+'burial-region']);
+					}
+					else if(prefix+'burial-info' in data) {
+						$("#"+prefix+"burial-town"+uniqueid).val(data[prefix+'burial-info']);
+
+					}
+				}
+			}
+			else {
+				$("#editmarriages").hide();
+			}
+			$editClone.show();
+
+			// BOUND FUNCTIONS for edit fields in template
+			$('input.number').keydown(function(key) {
+				if((key.keyCode >= 48 && key.keyCode <= 57) || key.keyCode == 8 || key.keyCode == 9 || key.keyCode == 46||
+						 key.keyCode == 37 || key.keyCode == 38 || key.keyCode == 39 || key.keyCode == 40)
+				{ return true; }
+				else { return false; }
+			});
+			$('input.number').blur(function() {
+				var val = parseInt($(this).val());
+				if(Number.isInteger(val)) {	$(this).val(val);	}
+				else {	$(this).val("");}
+			});
+			$('input.name-or-place').keydown(function(key) {
+			    console.log(key);
+				if( (key.keyCode >= 97 && key.keyCode <= 122) ||
+					(key.keyCode >= 65 && key.keyCode <= 90) ||
+					key.keyCode == 189 || key.keyCode == 222 || key.keyCode == 8 || key.keyCode == 9 || key.keyCode == 46 || key.keyCode == 32||
+						 key.keyCode == 37 || key.keyCode == 38 || key.keyCode == 39 || key.keyCode == 40)
+					{ return true; }
+				else { return false; }
+			});
+
+
+			// CANCEL
+			$("#editcancel"+uniqueid).click(function(event) {
+				$("#edit-window"+uniqueid).remove();
+				//$("#edit-window input:text").val("");
+				$("#editmarriagecell"+uniqueid).empty();
+			});
+
+			// SUBMIT
+			$("#edit-form"+uniqueid).submit(function(event) {
+				event.preventDefault();
+				deleteEmptyMarriage();
+				compileChanges(uniqueid);
+			});
+
+			/**************************************************
+							ADD A MARRIAGE
+			*************************************************/
+			$("#addamarriage"+uniqueid).on('click', function() {
+
+				if(isLastMarriageValid()) {
+					/* Make unique id for this edit marriage table when their are multiple marriages */
+					/* Data fields for each marriage are prefixed by "marriage-1-", "marriage-2-", etc. */
+					var newMarriageNumber = $(".edit-marriage-table-active").length + 1;
+					var prefix = 'marriage-'+newMarriageNumber+'-';
+					// Copy the template
+					var $newMarDiv = $("#edit-marriage-table").clone();
+					$newMarDiv.attr("id",prefix+"edit-marriage-table"+uniqueid);
+					$newMarDiv.addClass("edit-marriage-table-active");
+					// Customize the id and name for each input in the marriage editing block
+					$newMarDiv.find('[id]').each(function(){this.id = prefix+this.id+uniqueid});
+					$newMarDiv.find('[name]').each(function(){this.name = prefix+this.name+uniqueid});
+
+
+
+					$("#editmarriagescell"+uniqueid).append($newMarDiv);
+
+					// BOUND FUNCTIONS FOR ADD MARRIAGE
+					$('input.number').keydown(function(key) {
+						if((key.keyCode >= 48 && key.keyCode <= 57) || key.keyCode == 8 || key.keyCode == 9 || key.keyCode == 46 ||
+						 key.keyCode == 37 || key.keyCode == 38 || key.keyCode == 39 || key.keyCode == 40)
+						{ return true; }
+						else { return false; }
+					});
+					$('input.number').blur(function() {
+						var val = parseInt($(this).val());
+						if(Number.isInteger(val)) {	$(this).val(val);	}
+						else {	$(this).val("");}
+					});
+					$('input.name-or-place').keydown(function(key) {
+						if( (key.keyCode >= 97 && key.keyCode <= 122) ||
+							(key.keyCode >= 65 && key.keyCode <= 90) ||
+							key.keyCode == 189 || key.keyCode == 222 || key.keyCode == 8 || key.keyCode == 9 || key.keyCode == 46 || key.keyCode == 32 ||
+						 key.keyCode == 37 || key.keyCode == 38 || key.keyCode == 39 || key.keyCode == 40)
+							{ return true; }
+						else { return false; }
+					});
+					var newTitleCell = "#"+prefix+"editmarriage-title-cell"+uniqueid;
+					$(newTitleCell).html("New Marriage Record");
+					$newMarDiv.show();
+				}
+			});
+
+		});
+        if(lineageOption == 1) {
+			var viewlineageid = '#viewlineage'+uniqueid;
+			$(viewlineageid).click(function(event) {
+			    $(viewlineageid).prop('disabled',true);
+			    if($(viewlineageid).attr("value") == "View Lineage") {
+					$.ajax( {url:'../cfo/pfd/swi.php',
+							type: "POST",
+							data: {action:'getlineage', codyid:codyid}
+						})
+						.done(function(data){
+							$(viewlineageid).attr("value","Hide Lineage");
+							loadLineage(data);
+
+						})
+						.fail(function (jqXHR, textStatus, errorThrown) {
+							$('#family-info').empty().append("The Cody ID "+codyid+" was not found");
+						});
+				}
+				else {
+					$(viewlineageid).attr("value","View Lineage");
+				    $("#family-info").children().slice(1).remove();
+				}
+			    $(viewlineageid).prop('disabled',false);
+
+			});
+        }
+		//return $personDiv;
+	}
+
+	// end of loadPerson(data, lineageOption)
+	//
+</script>
+
+<script type="text/javascript">
+    //**************************************************************//
+	//  This is to make sure empty marriage recordd aren't accidentally added.
+	//  You can't add a marriage if the current edit window has a marriage
+	//    record with no information in any field.
+	//**************************************************************//
+   function isLastMarriageValid() {
+		var $marriageTables = $(".edit-marriage-table-active");
+		if($marriageTables.length > 0) {
+			var $lastMarriage = $marriageTables[$marriageTables.length-1];
+			var allInputs = $($lastMarriage).find("input, select");
+			var total = "";
+			$.each(allInputs, function(i,field) {
+				var id = $(field).attr('id');
+				var val = $("#"+id).val();
+				var type = $("#"+id).attr("type");
+				if(type == "checkbox") {
+					var checked = $("#"+id).is(":checked");
+					if(checked) {  val = "div";	}
+					else {		   val = "";	}
+				}
+				total += val;
+			});
+			//console.log("Total = " + total);
+			if(total.length == 0) {	return false; }
+			else { return true; }
+		}
+		else {   return true; }
+   }
+
+
+   //*************************************************************
+   //       Does what it says on the tin
+   //*************************************************************//
+   function deleteEmptyMarriage() {
+        if(!isLastMarriageValid()) {
+			var $marriageTables = $(".edit-marriage-table-active");
+			if($marriageTables.length > 0) {
+				var $lastMarriage = $marriageTables[$marriageTables.length-1];
+				$lastMarriage.remove();
+			}
+		}
+   }
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+		$('input.number').keydown(function(key) {
+			if((key.keyCode >= 48 && key.keyCode <= 57) || key.keyCode == 8 || key.keyCode == 9 || key.keyCode == 46||
+						 key.keyCode == 37 || key.keyCode == 38 || key.keyCode == 39 || key.keyCode == 40)
+			{ return true; }
+			else { return false; }
+		});
+		$('input.number').blur(function() {
+			var val = parseInt($(this).val());
+			if(Number.isInteger(val)) {	$(this).val(val);	}
+			else {	$(this).val("");}
+		});
+		$('input.name-or-place').keydown(function(key) {
+		    console.log(key.keyCode);
+			if( (key.keyCode >= 97 && key.keyCode <= 122) ||
+				(key.keyCode >= 65 && key.keyCode <= 90) ||
+				key.keyCode == 189 || key.keyCode == 222 || key.keyCode == 8 || key.keyCode == 9 	|| key.keyCode == 46 || key.keyCode == 32 ||
+						 key.keyCode == 37 || key.keyCode == 38 || key.keyCode == 39 || key.keyCode == 40)
+				{ return true; }
+			else { return false; }
+		});
+
+});
+</scrip
 });
 </script>
 

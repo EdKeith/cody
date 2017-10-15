@@ -22,7 +22,7 @@ function compileChanges(uniqueid) {
   console.log("originalData = ", originalData);
 
   // get form data
-  var id = $("#edit-form" + uniqueid).prop('id');
+  // var id = $("#edit-form" + uniqueid).prop('id');
   var $form = $("#edit-form" + uniqueid);
   console.log("$form = ", $form);
 
@@ -43,6 +43,9 @@ function compileChanges(uniqueid) {
     console.log("inputName = ", inputName);
     console.log("inputValue = ", inputValue);
     /* divorced */
+    if(inputName.indexOf("divorce") > 0){
+      inputValue = "div";
+    }
     if (inputName.indexOf("submitter") == -1 && inputName.indexOf("comment") == -1) {
       submittedData[inputName] = inputValue.replace(/\+/g, " ");
       console.log("submittedData = ", submittedData);
@@ -140,7 +143,7 @@ function onClickSubmitConfirm(event) {
 
 
   $("#confirm-table tr.confirm-data-row").each(function() {
-    var $tr = $(this);
+    // var $tr = $(this);
     var label = $(this).find("td.label-cell").html();
     var originalDataCell = $(this).find("td.original-data-cell").html();
     var submittedDataCell = $(this).find("td.submitted-data-cell").html();

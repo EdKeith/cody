@@ -1,23 +1,32 @@
 /* Tally up the changed fields   */
 function compileChanges(uniqueid) {
   // Check for required fields
-  var submitterdata = {};
-  submitterdata.FirstName = $("#submitter-first-name" + uniqueid).val().trim();
-  submitterdata.LastName = $("#submitter-last-name" + uniqueid).val().trim();
-  submitterdata.CodyId = $("#submitter-cody-id" + uniqueid).val().trim();
-  submitterdata.Email = $("#submitter-email" + uniqueid).val().trim();
-  submitterdata.Comment = $("#comment" + uniqueid).val().trim();
+  
+  
+  
+  
+  submitterdata = {
+    "FirstName": $("#submitter-first-name" + uniqueid).val().trim(),
+    "LastName": $("#submitter-last-name" + uniqueid).val().trim(),
+    "CodyId": $("#submitter-cody-id" + uniqueid).val().trim(),
+    "Email": $("#submitter-email" + uniqueid).val().trim(),
+    "Comment": $("#comment" + uniqueid).val().trim()
+  };
 
   if (submitterdata.FirstName.length == 0 ||
     submitterdata.LastName.length == 0 ||
     isEmail(submitterdata.Email) == false) {
+
     $("#must-include-message" + uniqueid).css('color', 'red');
     //alert("Please include first name, last name and a proper email address");
     return false;
   }
+  sessionStorage.setItem('submitter', JSON.stringify(submitterdata));
 
-  console.log('$("#edit-window" + uniqueid).data() = ', $("#edit-window" + uniqueid).data());
+  // console.log('$("#edit-window" + uniqueid).data() = ', $("#edit-window" + uniqueid).data());
   // Saved original data sent to populate this form
+
+  // deep copy so changes made here will not effect the original
   var originalData = JSON.parse(JSON.stringify($("#edit-window" + uniqueid).data()));
   console.log("originalData = ", originalData);
 
@@ -34,8 +43,8 @@ function compileChanges(uniqueid) {
 
   console.log("submittedInputs = ", submittedInputs);
   $.each(submittedInputs, function(index, value) {
-    console.log("value = ", value);
-    console.log("index = ", index);
+
+    console.log("value = ", value, " index = ", index);
     var nameandvalue = value.split('=');
     var inputName = nameandvalue[0].replace(uniqueid, ""); // remove id decoration
     var inputValue = nameandvalue[1];
@@ -43,7 +52,7 @@ function compileChanges(uniqueid) {
     console.log("inputName = ", inputName);
     console.log("inputValue = ", inputValue);
     /* divorced */
-    if(inputName.indexOf("divorce") > 0){
+    if (inputName.indexOf("divorce") > 0) {
       inputValue = "div";
     }
     if (inputName.indexOf("submitter") == -1 && inputName.indexOf("comment") == -1) {
@@ -54,6 +63,11 @@ function compileChanges(uniqueid) {
   });
   console.log("numberOfInputs = ", numberOfInputs)
   console.log("final value of submittedData = ", submittedData);
+
+  displayModalWindow(uniqueid, originalData, submittedData, submitterdata);
+}
+
+function displayModalWindow(uniqueid, originalData, submittedData, submitterdata) {
   //**************************************************************//
   // CHECK FOR CHANGED FIELDS
   //**************************************************************//
@@ -75,7 +89,8 @@ function compileChanges(uniqueid) {
         $changeRow = $("<tr class='confirm-data-row'><td class='label-cell'>" + submitLabel +
           "</td><td class='original-data-cell'>" + originalValue +
           "</td><td class='submitted-data-cell'>" + submitValueCleaned + "</td></tr>");
-        $("#confirm-table").append($changeRow);
+        // $("#confirm-table").append($changeRow);
+        $("#submit-confirm-table-body").append($changeRow);
         numberOfChanges++;
       }
     } else {
@@ -115,10 +130,10 @@ function compileChanges(uniqueid) {
   }
 }
 
-
-
 function onClickSubmitConfirm(event) {
   var uniqueid = $("#unique-id").html();
+
+  // make a deep copy
   var originalData = JSON.parse(JSON.stringify($("#original-data").data()));
   var submittedData = $("#submitted-data").data();
   console.log("submittedData = ", submittedData);

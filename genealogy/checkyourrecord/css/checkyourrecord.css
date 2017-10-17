@@ -87,37 +87,27 @@ pre {font-size:10px;font-family:arial;word-wrap:break-word;padding:3px;max-width
 	padding:10px;
 	text-align:center;
 	max-height: 80vh;
-	    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+	display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   /* overflow: scroll; */
 }
 
 .submit-confirm-head{
 	flex-shrink: 0;
 }
-#confirm-table{
-	color: green;
-	background-color: cyan;
-	 flex-grow: 1;
+
+.submit-confirm-body{
+		 flex-grow: 1;
     overflow: auto;
     min-height: 2em;
-	/*
-	height: 10vh;
-	overflow: hide;
-	*/
 }
+
 .submit-confirm-footer{
 	flex-shrink: 0;
-	/*
-	position: absolute;
-  bottom: 10px;
-	width: 100%;
-	*/
 }
 tbody.changed-data{
-	color: yellow;
-	overflow: scroll;
+	
 }
 
 table.confirm {width:100%;margin:10px 0px;border:2px solid #b29269;}

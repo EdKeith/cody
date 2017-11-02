@@ -115,10 +115,12 @@ class CodyFamily {
 	function __construct() {
 		$this->startTime = microtime(true);
 		$this->lines = file($this->refinedCodyFile);
+		$this->logMsg("cf__construct");
 		//$this->buildCodyIdIndex();
 	}
 	function __destruct() {	
 		$diff = round(microtime(true) - $this->startTime,3);
+		$this->logMsg("cf__destruct");
 		//$this->logMsg("Completed in $diff seconds");
 	}
 	
@@ -379,6 +381,7 @@ class CodyFamily {
 	
 	// Returns single record for a cody id
 	function getRecordByCodyId($codyId) {
+		$this->logMsg("getting record by ID");
 		$lineNumber = 0;
 		while($lineNumber<count($this->lines)) {
 		    $thisLine = $this->lines[$lineNumber];
@@ -1909,7 +1912,7 @@ class CodyFamily {
 	
 	function sendMail($message,$subject,$email) {
 	
-	    $to = 'genealogist@cody-family.org,koebelin@gmail.com';
+	  $to = 'genealogist@cody-family.org,koebelin@gmail.com';
 		//$to = 'koebelin@gmail.com';
 		
 		$headers =  "From: $email" . "\n" .
@@ -1917,9 +1920,64 @@ class CodyFamily {
 			        'X-Mailer: PHP/' . phpversion();
 					
 		$this->logMsg("Email sent to $to subject $subject\r\n$headers\r\nMessage: $message");
+			
+		// Put into monthly log file
+		try{
+			$path = ROOT.DS.'log/';
+
+			$filename = $path . date("Y-m") . "sugestions.log";
+			$this->logMsg("Logging to $filename");
+			if (!$handle = fopen($filename, 'a')) {
+					//echo "Cannot open file ($filename)";
+				  $this->logMsg("!!! FAILED TO RECORD CHANGE REQUEST : CODE 1 - failed to open file !!!");
+					return;
+				}
+				if (!fwrite($handle, $message)) {
+					$this->logMsg("!!! FAILED TO RECORD CHANGE REQUEST : CODE 2 - failed to write to file !!!");
+					fclose($handle);
+					return;
+				}
+				fclose($handle);
+		}	catch(Exception $e) {
+			$this->logMsg("!!! FAILED TO RECORD CHANGE REQUEST : CODE 3 - exception thrown !!!");
+			fclose($handle);
+		}	
+		$this-logMsg("Logged");
 		mail($to, $subject, $message, $headers);
 	}
-	
+	/****
+	function logMsg($msg) {
+		try {
+			$stamp = date("m.d.y H:i:s");
+			$logmsg = $stamp . "\t\t" . $msg . "\n";
+			$dateSuffix = date("ymd");	
+			
+			$permissions = substr(sprintf('%o', fileperms('../log')), -4);
+			if ($permissions == "0777" || $permissions == "0755") {
+				//
+				if (!file_exists($path)) {
+					return;  // give up
+					//mkdir($path, 0755, true);
+				}
+				$filename = $path.DS."messages_$dateSuffix.log";
+				if (!$handle = fopen($filename, 'a')) {
+					//echo "Cannot open file ($filename)";
+					return;
+				}
+				if (!fwrite($handle, $logmsg)) {
+					//echo "Cannot write to file ($filename)";
+					return;
+				}
+				fclose($handle);
+			}
+		}
+		catch(Exception $e) {
+
+		
+		}
+	}	
+		*/				
+						
 	function logMsg($msg) {
 		try {
 			$stamp = date("m.d.y H:i:s");
